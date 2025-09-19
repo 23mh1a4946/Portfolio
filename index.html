@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poojitha's Portfolio</title>
+  <style>
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #444;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #444;
+      font-weight: 600;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #ffb6b9;
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+
+    .hero img {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        border: 6px solid white;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        animation: float 4s ease-in-out infinite;
+        object-fit: cover;  /* Ensures the image fills without shrinking */
+  }
+
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      animation: fadeUp 1.5s ease-out;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      animation: fadeUp 2s ease-out;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      background: #a8edea;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background: #fed6e3;
+    }
+
+    /* Sections */
+    section {
+      margin-top: 80px;
+    }
+
+    section h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-left: 5px solid #ffb6b9;
+      padding-left: 10px;
+    }
+
+    /* Skills Section */
+    .skills {
+      display: grid;
+      gap: 20px;
+    }
+
+    .skill {
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .skill-title {
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .progress {
+      height: 12px;
+      background: #eee;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #a1c4fd, #c2e9fb);
+      border-radius: 20px;
+      transition: width 2s ease;
+    }
+
+    /* Projects Section */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    
+
+    .project-card {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .project-card h4 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .project-card p{
+        line-height: 25px;
+    }
+    /* Contact Section */
+   
+    /* Contact Section */
+#contact {
+  text-align: center;
+  margin-top: 80px;
+}
+
+#contact h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.contact-info a {
+  text-decoration: none;
+  color: #5a5ae6;
+  font-weight: 500;
+}
+
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.social-icons img {
+  width: 35px;
+  height: 35px;
+  background: #f5f7ff;
+  padding: 8px;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+  background: #e4e8ff;
+}
+
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      font-size: 0.9rem;
+      background: black;
+      color: white;
+      border-radius: 10px;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>My Portfolio</h1>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-text">
+        <h2>Hello, I'm Poojitha 👋</h2>
+        <p>I’m a creative developer who loves pastel colors, smooth animations, and clean designs. Welcome to my digital space!</p>
+        <button class="btn">Download Resume</button>
+      </div>
+      <img src="./poojitha.jpg" alt="Your Photo">
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h3>About Me</h3>
+      <p>
+        I am passionate about building elegant web applications that balance design and functionality. 
+        My goal is to create interfaces that feel soft, user-friendly, and aesthetically pleasing, inspired by pastel tones.
+      </p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h3>My Skills</h3>
+      <div class="skills">
+        <div class="skill">
+          <div class="skill-title">HTML</div>
+          <div class="progress"><div class="progress-bar" data-width="95%"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-title">CSS</div>
+          <div class="progress"><div class="progress-bar" data-width="90%"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-title">JavaScript</div>
+          <div class="progress"><div class="progress-bar" data-width="85%"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-title">React</div>
+          <div class="progress"><div class="progress-bar" data-width="80%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h3>Projects</h3>
+      <div class="projects">
+        <div class="project-card">
+          <h4>Project One</h4>
+          <p>To create a simple system that allows students to check, in real time, which faculty members are currently available in their department’s staff room.</p>
+        </div>
+        <div class="project-card">
+          <h4>Project Two</h4>
+          <p>Tech Pulse is a platform designed by us to help students explore the right opportunities in tech from internships and learning paths to resources that guide them toward their career goals.💻</p>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+   <section id="contact">
+  <h3>Get In Touch</h3>
+  <div class="contact-info">
+    <p>📍 Rajahmundry, Andhra Pradesh, India</p>
+    <p>📞 <a href="tel:+917396035455">+91 7396035455</a></p>
+    <p>📧 <a href="mailto:poojithapendyala120@gmail.com">poojithapendyala120@gmail.com</a></p>
+    <div class="social-icons">
+      <a href="#"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
+      <a href="#"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub"></a>
+      <a href="#"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/javascript.svg" alt="Code"></a>
+      <a href="#"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/hackerrank.svg" alt="Hackerrank"></a>
+    </div>
+  </div>
+</section>
+
+
+    <footer>
+      <p>© 2025 Poojitha</p>
+    </footer>
+  </div>
+
+  <script>
+    // Animate progress bars when scrolled into view
+    const progressBars = document.querySelectorAll('.progress-bar');
+    window.addEventListener('scroll', () => {
+      progressBars.forEach(bar => {
+        const rect = bar.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          bar.style.width = bar.dataset.width;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
